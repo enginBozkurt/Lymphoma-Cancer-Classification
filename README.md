@@ -105,5 +105,23 @@ That said, some specific items worth pointing out in the code:
 One important practice which is commonly overlooked is to visually examine a sample of the input which will be going to the network, which we do in this cell:
 </p9>
 
+![screenshot_3](https://user-images.githubusercontent.com/30608533/50727772-c4d66c80-1130-11e9-8a39-e3905fb008ec.jpg)
 
+<p11>
+  
+We can see that the augmentations have been done properly (image looks “sane”). We can also note how the color augmentation has drastically changed the appearance of the image (left) from H&E to a greenish color space, in hopes of greater generalizability later. Here I’m using the default values as an example, but tuning these values will likely improve results if they’re tailored towards to specific test set of interest
+.</p11>
 
+<p12>
+  
+Some notes:
+- In this example, we’ve used a reduced version of Densenet for prototyping (as defined by the parameters in the first cell). For production usage, these values should be tuned for optimal performance. In the 5th cell, one can see the default parameters. For an explination of the parameters, please refer to the both the code and manuscript links for Densenet provided above.
+-  This code is heavily reused for both training and valuation through the notion of “phases”, in particular the cell labeled 134 contains a bit of intertwined code which sets appropriate backend functionality (e.g., enabling/disabling gradient computation)
+- Note that the validation is step is very expensive in time, and should be enabled with care.
+</p12>
+
+<p13>
+  
+The bottom of the notebook shows how to both visualize individual kernels and to visualize activations. Note that to be efficient pytorch does not keep activations in memory after the network is done computing. Thus it is impossible to retrieve them after the model does its prediction. As a result, we create a hook which saves the activations we’re interested at when the layer of interest is encountered.
+</p13>
+  
