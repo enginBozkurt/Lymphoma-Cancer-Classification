@@ -126,3 +126,25 @@ The bottom of the notebook shows how to both visualize individual kernels and to
 </p13>
 
 ![screenshot_4](https://user-images.githubusercontent.com/30608533/50728012-ae321480-1134-11e9-8ace-d27fe71b5560.jpg)
+
+<h2>
+
+```diff
++ Visualizing results in the validation set
+```
+
+</h2>
+
+
+<p14>
+
+Since we’re consistently saving the best model as the classifier is training, we can interrogate the results on the validation set easily while the network itself is training. This is best done if 2 GPUs are available, so that the main GPU can continue training while the second GPU can generate the output. If the network is small enough and the memory of a singular GPU large enough, both processes can be done using the same GPU.
+
+Some notes:
+-  Augmentation in the related cell: in the case of using this for output generation, we want to use the original images since they will give a better sense of the expected output when used on the rest of the dataset, as a result, we disable all unnecessary augmentation. The only component that remains here is the randomcrop, to ensure that regardless of the size of the image in the database, we extract an appropriately sized patch
+
+-  We can see the output has 2 components. The numerical components show the ground truth class versus the predicted class, as well as the raw deep learning output (i.e., pre argmax). Additionally, we can see the input image after and before augmentation.
+- At the bottom of the output, we can see the confusion matrix for this particular subset, with the accuracy (here shown to be 100% on 4 examples).
+
+</p14>
+
