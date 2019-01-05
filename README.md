@@ -124,4 +124,5 @@ Some notes:
   
 The bottom of the notebook shows how to both visualize individual kernels and to visualize activations. Note that to be efficient pytorch does not keep activations in memory after the network is done computing. Thus it is impossible to retrieve them after the model does its prediction. As a result, we create a hook which saves the activations we’re interested at when the layer of interest is encountered.
 </p13>
-  
+
+![screenshot_4](https://user-images.githubusercontent.com/30608533/50728012-ae321480-1134-11e9-8ace-d27fe71b5560.jpg)
