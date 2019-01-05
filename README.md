@@ -56,7 +56,14 @@ Regardless of the desired model type used for the classifier, deep learning (DL)
 
 </p5>
 
+![screenshot_2](https://user-images.githubusercontent.com/30608533/50726860-d5ccb100-1123-11e9-91fd-a7e2c4ccd407.jpg)
 
+
+<p6>
+
+Note that this code chops images into overlapping tiles, at a user specified stride, which is very fast based on python views. If your experiment focuses on only smaller annotated pieces of the image, this code would need to be adjusted (e.g., ROIs of localized disease presentation).
+  
+</p6>
 
 
 
