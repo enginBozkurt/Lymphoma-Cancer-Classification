@@ -43,3 +43,20 @@ Unpacking this, we can see the reasoning for these claims:
 
 ![screenshot_10](https://user-images.githubusercontent.com/30608533/50726745-7326e580-1122-11e9-8349-21a672af4ba5.jpg)
 
+<p5>
+  
+Regardless of the desired model type used for the classifier, deep learning (DL) is typically best performed using some type of a database backend. This database need not be sophisticated (e.g., the LMDB commonly used by Caffe), nor must it be a true database (e.g., here we’ll discuss using PyTables which has an HDF5 backend). The benefits of using a database are numerous, but we can briefly list some of them here:
+- As individual files, extracted image “patches” can often number into the thousands or millions in the case of DL. The access time can be very slow as modern operating systems are not typically tuned for efficient access of large numbers of files. Trying to do something as simple as “ls” in a directory in Windows/Linux with millions of files can cause a notable lag.
+
+- Improved speed as a result of both reading off of disk, o/s level caching, and improved compression
+
+- Improved reproducibility, coming back to a project later which has a database allows for much more consistent retraining of the model, especially when other files may have been lost (e.g., lists of training and testing sets)
+
+- Better protection against data leakage. Although not required, I prefer creating separate databases (in this case files), for training, validation, and testing purposes. This can greatly reduce human error in making sure that only training images are read during training time, and that validation/test images are completely held out.
+
+</p5>
+
+
+
+
+
