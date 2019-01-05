@@ -87,4 +87,23 @@ That said, some specific items worth pointing out in the code:
 
 </p7>
 
+<h2>
+
+```diff
++ Training a model
+```
+
+</h2>
+
+<p8>
+  
+  Now that once we have the data ready, we’ll train the network. The Densenet architecture is provided by PyTorch in the torchvision package, in a very modular fashion. Thus the main components that we need to develop and discuss here is how to get our data in and out of the network.
+</p8>
+
+<p9>
+
+One important practice which is commonly overlooked is to visually examine a sample of the input which will be going to the network, which we do in this cell:
+</p9>
+
+
 
