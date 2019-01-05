@@ -26,6 +26,7 @@ Multiple sets of these blocks are then sequentially applied, with a bottleneck l
 
 </p2>
 
+![densenet_figure2](https://user-images.githubusercontent.com/30608533/50726551-fb57bb80-111f-11e9-86ea-55e8044a7cd1.png)
 
 <p3>
 
@@ -33,7 +34,8 @@ The authors of this approach claim “DenseNets exploit the potential of feature
 Unpacking this, we can see the reasoning for these claims:
 1) Directly connecting layers throughout the network helps to reduce the vanishing gradient problem
 2) Features learned at the earlier layers, which likely contain important filters (for example edge detectors) can be reused in later networks directly as opposed to having to be relearned anew. This both (a) reduces the overall amount of feature redundancy (each layer doesn’t need to learn its own edge detector), resulting in fewer overall parameters, potentially less opportunities for overfitting, and (b) result in faster training times than e.g., ResNet (no additional computation required on “inherited” data in densenets, while resnets require additional operations)
-These claims seem justified when looking at the comparison to other network architectures:
 
 </p3>
+
+
 
