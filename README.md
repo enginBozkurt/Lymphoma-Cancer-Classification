@@ -69,4 +69,22 @@ Note that this code chops images into overlapping tiles, at a user specified str
 </p6>
 
 
+<p7>
+  
+That said, some specific items worth pointing out in the code:
+
+- Images are stored as unsigned 8-bit integers, and thus their values range from [0,255]
+
+- We assume that each image represents a unique patient and thus naively splits the images into training and validation batches. If this is not the case, it should be addressed there by assigning appropriate files to each of the phase dictionary items. Always remember, training and validation should take place at a patient level (e., a patient is either in the training set or the testing set, but never both)
+
+- We use a modest compression level of 6, which some experiments have shown to be a nice trade-off between time and size. This is easily modifiable in the code by changed the value of “complevel”
+
+- Images are stored in the database in [IMAGE, NROW,NCOL,NCHANNEL] format. This allows for easier retrieval later. Likewise, the chunk size is set to the tile size such that it is compressed independently of the other items in the database, allowing for rapid data access.
+
+- The class is determined by looking at the filename for one of the 3 specified labels. In this case, each of the classes is in its own unique directory, with the correct associated class name.
+
+- The labels, filenames, and total number of instances of each class are stored in the database for downstream reference (the latter to allow for class weighting).
+
+</p7>
+
 
