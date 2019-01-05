@@ -37,5 +37,9 @@ Unpacking this, we can see the reasoning for these claims:
 
 </p3>
 
+```diff
++ Making a database
+```
 
+![screenshot_10](https://user-images.githubusercontent.com/30608533/50726745-7326e580-1122-11e9-8349-21a672af4ba5.jpg)
 
